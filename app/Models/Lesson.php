@@ -8,23 +8,18 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Book extends Model
+class Lesson extends Model
 {
     use HasFactory;
 
-    public function author(): BelongsTo
+    public function course(): BelongsTo
     {
-      return $this->belongsTo(Scholar::class, 'author_id');
+      return $this->belongsTo(Course::class);
     }
 
-    public function courses(): HasMany
+    public function media(): BelongsToMany
     {
-      return $this->hasMany(Course::class);
-    }
-
-    public function tags(): BelongsToMany
-    {
-      return $this->belongsToMany(Tag::class);
+      return $this->belongsToMany(Media::class, 'lessons_media');
     }
 
 }

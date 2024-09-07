@@ -12,6 +12,8 @@ return [
   "fatawa" => "Fatawa",
   "articles" => "Articles",
 
+  'language' => 'Lang',
+
   'signup' => 'Sgin up',
   'login' => 'Login',
 

@@ -11,6 +11,7 @@ return [
   'female' => 'Female',
   'password' => 'Password:',
   'password_confirmation' => 'Confirm password:',
+  'remember_me' => 'Remember me.',
 
   'hav_acc' => 'Already have an account?',
   'dont_hav_acc' => 'Don\'t have an account?',

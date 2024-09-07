@@ -1,15 +1,17 @@
+$('body').hide();
 $(() => {
 
   $("#loader").hide();
+  $('body').show();
 
-  $("#menu-button").click(function (e) {
+  $("#menu-button").on( 'click', function (e) {
     e.preventDefault();
     $("#nav-list").slideToggle();
     $("#nav-list").css('display', 'flex');
     $(e.target).toggleClass('rotate-180')
   });
 
-  $('#user-button').click((e) => {
+  $('#user-button').on( 'click', (e) => {
     e.preventDefault();
     $('#user-list').slideToggle();
   })
@@ -17,15 +19,23 @@ $(() => {
   $('#hd-library-trigger').on({
 
     mouseenter: () => {
-      $('#hd-library-list').show();
+      if($(window).width() >= 1024){
+        $('#hd-library-list').toggle();
+        $('#hd-library-trigger .arrow.down').toggleClass('rotate-[225deg] duration-200');
+      };
     },
 
     mouseleave: () => {
-      $('#hd-library-list').hide();
+      if($(window).width() >= 1024){
+        $('#hd-library-list').toggle();
+        $('#hd-library-trigger .arrow.down').toggleClass('rotate-[225deg]');
+      };
     },
 
-    mouseleave: () => {
-      $('#hd-library-list').toggle();
+    click: () => {
+      if($(window).width() < 1024){
+        $('#hd-library-list').toggle();
+      };
     },
 
   });

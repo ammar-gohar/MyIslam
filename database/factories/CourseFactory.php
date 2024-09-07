@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Media>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Course>
  */
-class MediaFactory extends Factory
+class CourseFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,9 @@ class MediaFactory extends Factory
     public function definition(): array
     {
         return [
-            'url' => fake()->imageUrl(),
-            'type' => fake()->optional()->randomElement(['video', 'image'])
+            'title' => fake()->sentence(),
+            'lecturer' => fake()->name(),
+            'lang' => fake()->randomElement(['ar', 'en']),
         ];
     }
 }

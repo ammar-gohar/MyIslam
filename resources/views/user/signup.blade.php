@@ -60,7 +60,7 @@
                     </div>
                     <div>
                         <label for="password_confirmation " class="block mb-2 text-sm font-medium text-gray-900">{{ __('signing.password_confirmation') }}</label>
-                        <input type="password_confirmation " name="password_confirmation " id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+                        <input type="password" name="password_confirmation " id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
                     </div>
                     {{-- <div class="flex items-start">
                         <div class="flex items-center h-5">

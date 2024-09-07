@@ -17,7 +17,10 @@ class QuestionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+          'question' => fake()->sentence(),
+          'answer' => fake()->paragraph(),
+          'lang' => fake()->randomElement(['ar', 'en']),
         ];
     }
+
 }

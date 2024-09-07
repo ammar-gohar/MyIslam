@@ -11,6 +11,7 @@ return [
   'female' => 'أنثى',
   'password' => 'كلمة المرور:',
   'password_confirmation' => 'تأكيد كلمة المرور:',
+  'remember_me' => 'تذكّرني',
 
   'hav_acc' => 'هل تملك حسابًا؟',
   'dont_hav_acc' => 'ألا تملك حسابًا؟',

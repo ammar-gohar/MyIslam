@@ -21,7 +21,7 @@ class UserController extends Controller
 
     $params = $request->validate([
       'email' => ['bail', 'required', 'email', 'max:255'],
-      'password' => ['bail', 'required', 'string', 'max:255', 'password']
+      'password' => ['bail', 'required', 'string', 'max:255', 'password', 'min:8']
     ]);
 
     if(!Auth::attempt($params)){
@@ -53,7 +53,7 @@ class UserController extends Controller
       'email' => ['bail', 'required', 'email', 'max:255', 'unique:users,email'],
       'birth_date' => ['bail', 'required', 'date', "after:$minDate", "before:$maxDate"],
       'gender' => ['bail', 'required', Rule::in(['m', 'f'])],
-      'password' => ['bail', 'required', 'max:255', 'password', 'confirmed'],
+      'password' => ['bail', 'required', 'max:255', 'password', 'min:8', 'confirmed'],
     ]);
 
     $user = User::create($params);

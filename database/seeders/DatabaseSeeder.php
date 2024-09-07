@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
+use App\Models\Book;
+use App\Models\Course;
+use App\Models\Question;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,9 +19,25 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        Article::factory(5)
+            ->hasAuthor()
+            ->hasTags(2)
+            ->create();
+
+        Question::factory(20)
+            ->hasAskedBy()
+            ->hasAnsweredBy()
+            ->hasTags(2)
+            ->create();
+
+        Book::factory(20)
+            ->hasAuthor()
+            ->hasCourses(2)
+            ->create();
+
+        Course::factory(10)
+            ->hasLessons(10)
+            ->create();
+
     }
 }

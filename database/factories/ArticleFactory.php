@@ -17,7 +17,10 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+          'title' => fake()->sentence(),
+          'thumbnail' => fake()->optional()->imageUrl(),
+          'body' => '<p>' . implode('</p><p>', fake()->paragraphs(5)) . '</p>',
+          'lang' => fake()->randomElement(['ar', 'en']),
         ];
     }
 }

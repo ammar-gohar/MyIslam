@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Article;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -12,13 +14,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('thumbnail')->nullable();
-            $table->string('title');
-            $table->text('body');
             $table->foreignIdFor(User::class, 'author_id')->nullable()->nullOnDelete()->cascadeOnUpdate();
-            $table->enum('lang', ['ar', 'en']);
+            $table->foreignIdFor(Article::class, 'article_id')->nullable()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(Comment::class, 'parent_comment_id')->nullable()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->text('body');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('comments');
     }
 };
