@@ -11,6 +11,7 @@ return [
   "audios" => "Audios",
   "fatawa" => "Fatawa",
   "articles" => "Articles",
+  "authors" => "Authors",
 
   'language' => 'Lang',
 

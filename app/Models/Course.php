@@ -21,4 +21,9 @@ class Course extends Model
       return $this->belongsTo(Book::class);
     }
 
+    public function lecturer(): BelongsTo
+    {
+      return $this->belongsTo(Scholar::class, 'lecturer_id');
+    }
+
 }

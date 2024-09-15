@@ -34,7 +34,7 @@ class Question extends Model
 
     public function tags(): BelongsToMany
     {
-      return $this->belongsToMany(Tag::class, 'questions_tags');
+      return $this->belongsToMany(Tag::class);
     }
 
 }

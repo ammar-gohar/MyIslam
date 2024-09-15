@@ -21,10 +21,10 @@ class UserController extends Controller
 
     $params = $request->validate([
       'email' => ['bail', 'required', 'email', 'max:255'],
-      'password' => ['bail', 'required', 'string', 'max:255', 'password', 'min:8']
+      'password' => ['bail', 'required', 'string', 'max:255', 'min:8']
     ]);
 
-    if(!Auth::attempt($params)){
+    if(!Auth::attempt($params, $request->remember_me)){
         throw ValidationException::withMessages([
             'email' => 'The provided credentials do not match our records.'
         ]);
@@ -51,17 +51,29 @@ class UserController extends Controller
       'first_name' => ['bail', 'required', 'regex:/[a-zA-Z]/i', 'max:20'],
       'last_name' => ['bail', 'required', 'regex:/[a-zA-Z]/i', 'max:20'],
       'email' => ['bail', 'required', 'email', 'max:255', 'unique:users,email'],
+      'country' => ['bail', 'required'],
       'birth_date' => ['bail', 'required', 'date', "after:$minDate", "before:$maxDate"],
       'gender' => ['bail', 'required', Rule::in(['m', 'f'])],
-      'password' => ['bail', 'required', 'max:255', 'password', 'min:8', 'confirmed'],
+      'password' => ['bail', 'required', 'max:255', 'min:8', 'confirmed'],
     ]);
 
     $user = User::create($params);
 
-    Auth::login($user);
+    Auth::login($user, true);
 
-    return redirect()->route('./');
+    return redirect()->back();
 
+  }
+
+  public function logout(Request $request)
+  {
+    Auth::logout();
+
+    $request->session()->invalidate();
+
+    $request->session()->regenerateToken();
+
+    return redirect()->back();
   }
 
 }

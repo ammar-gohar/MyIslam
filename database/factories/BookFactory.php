@@ -20,6 +20,7 @@ class BookFactory extends Factory
           'title' => fake()->sentence(),
           'about' => fake()->paragraph(),
           'written_in' => fake()->year(),
+          'cover' => fake()->imageUrl(),
           'lang' => fake()->randomElement(['ar', 'en']),
         ];
     }

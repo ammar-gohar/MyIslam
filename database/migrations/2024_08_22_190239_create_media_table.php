@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->string('source');
-            $table->enum('type', ['video', 'image']);
+            $table->enum('type', ['video', 'image', 'audio']);
             $table->timestamps();
         });
     }

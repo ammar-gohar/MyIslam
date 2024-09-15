@@ -19,7 +19,7 @@ class Lesson extends Model
 
     public function media(): BelongsToMany
     {
-      return $this->belongsToMany(Media::class, 'lessons_media');
+      return $this->belongsToMany(Media::class, 'lesson_media');
     }
 
 }

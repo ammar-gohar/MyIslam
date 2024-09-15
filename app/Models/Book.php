@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\App;
 
 class Book extends Model
 {
@@ -24,7 +25,7 @@ class Book extends Model
 
     public function tags(): BelongsToMany
     {
-      return $this->belongsToMany(Tag::class);
+      return $this->belongsToMany(Tag::class)->select('name_' . App::currentLocale() . " as name");
     }
 
 }

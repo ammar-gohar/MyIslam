@@ -29,12 +29,12 @@ class Article extends Model
 
     public function tags(): BelongsToMany
     {
-      return $this->belongsToMany(Tag::class, 'articles_tags');
+      return $this->belongsToMany(Tag::class);
     }
 
     public function media(): BelongsToMany
     {
-      return $this->belongsToMany(Media::class, 'articles_media');
+      return $this->belongsToMany(Media::class, 'article_media');
     }
 
 }

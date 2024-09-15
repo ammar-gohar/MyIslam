@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -9,12 +10,14 @@ use Illuminate\Support\Facades\Session;
 Route::get('/', function () {
   return view('home', [
     'articles' => \App\Models\Article::latest()
-                          ->with(['author', 'categories']),
+                          ->with(['author', 'categories'])
+                          ->limit(10)
+                          ->get(),
     'questions' => \App\Models\Question::latest()
-                          ->with('answered_by'),
-    'test' => request('test') ?? 'NoRequest',
+                          ->with('answered_by')
+                          ->limit(10),
   ]);
-}) ->name('home');
+})->name('home');
 
 Route::get('/test', function() {
   return response()->json(['test' => request('test') ?? 'NoRequest']);
@@ -27,10 +30,6 @@ Route::get('/lang/{locale}', function(string $locale) {
   }
 
   Session::put('locale', $locale);
-  // echo '<pre>';
-  // print_r(Session::all());
-  // echo '</pre>';
-  // die();
   App::setLocale($locale);
 
   return redirect()->back();
@@ -56,6 +55,19 @@ Route::controller(UserController::class)->group(function () {
   Route::post('/login', 'login')
     ->name('userLogin')
     ->middleware('guest');
+
+  Route::post('/logout', 'logout')
+    ->name('logout')
+    ->middleware('auth');
+});
+
+Route::controller(BookController::class)->group(function () {
+  Route::get('/books', 'index')
+  ->name('books');
+
+  Route::get('/books/{book}', 'show')
+  ->name('bookShow');
+
 });
 
 Route::get('/fatawa', [QuestionController::class, 'index'])

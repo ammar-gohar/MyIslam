@@ -11,6 +11,7 @@ return [
   "audios" => "الصوتيّات",
   "fatawa" => "الفتاوى",
   "articles" => "المقالات",
+  "authors" => "الكُتّاب",
 
   'language' => 'اللغة',
 

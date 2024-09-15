@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('scholars', function (Blueprint $table) {
             $table->id();
+            $table->string('image')->default('noScholar.jpg');
+            $table->string('title')->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('about');

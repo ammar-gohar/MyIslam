@@ -14,7 +14,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  @vite(["./resources/js/app.js", './resources/css/app.css'])
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <script src="{{ asset('js/jquery.js') }}"></script>
+  <script src="{{ asset('js/script.js') }}" defer></script>
 
 </head>
 <body class="relative w-full m-0 flex flex-col justify-between min-h-screen bg-gray-50">

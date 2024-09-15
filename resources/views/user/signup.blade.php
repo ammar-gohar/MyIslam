@@ -34,6 +34,13 @@
                         @enderror
                     </div>
                     <div>
+                        <label for="country" class="block mb-2 text-sm font-medium text-gray-900">{{ __('signing.country') }}</label>
+                        <input type="text" name="country" id="country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" value="{{ old('country') }}" placeholder="Your country:" required>
+                        @error('country')
+                          <p class="m-0 text-red-500 text-sm">* {{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div>
                         <label for="birth_date" class="block mb-2 text-sm font-medium text-gray-900">{{ __('signing.birth_date') }}</label>
                         <input type="date" name="birth_date" id="birth_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" value="{{ old('birth_date') }}" min="{{ date( 'Y-m-d', time() - 60*60*24*365.25*150) }}" max="{{ date( 'Y-m-d', time() - 60*60*24*365.25*6) }}" required>
                         @error('birth_date')
@@ -59,8 +66,8 @@
                         @enderror
                     </div>
                     <div>
-                        <label for="password_confirmation " class="block mb-2 text-sm font-medium text-gray-900">{{ __('signing.password_confirmation') }}</label>
-                        <input type="password" name="password_confirmation " id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+                        <label for="password_confirmation" class="block mb-2 text-sm font-medium text-gray-900">{{ __('signing.password_confirmation') }}</label>
+                        <input type="password" name="password_confirmation" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
                     </div>
                     {{-- <div class="flex items-start">
                         <div class="flex items-center h-5">

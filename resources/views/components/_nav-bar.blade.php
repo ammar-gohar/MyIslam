@@ -1,4 +1,8 @@
-<button class="absolute top-2 right-2 lg:hidden font-bold z-20 w-10 h-10 text-green-800 rounded-full text-xl duration-500" id="menu-button">M</button>
+<div class="inline-block cursor-pointer absolute top-3 right-3 lg:hidden font-bold z-20 w-10 h-10 text-green-800 rounded-full text-xl duration-500" id="menu-button">
+  <div class="bar1 w-[35px] h-[5px] bg-green-800 my-[6px] duration-300"></div>
+  <div class="bar2 w-[35px] h-[5px] bg-green-800 my-[6px] duration-300"></div>
+  <div class="bar3 w-[35px] h-[5px] bg-green-800 my-[6px] duration-300"></div>
+</div>
 
 <nav class="flex flex-col justify-between items-center align-middle w-full p-2 text-center gap-3 py-3 relative bg-green-50 shadow-md z-10 lg:flex-row lg:mx-auto" id="navbar">
 
@@ -19,14 +23,14 @@
     <ul class="flex w-full flex-col justify-center items-center gap-3 p-1 lg:w-auto lg:flex-row">
       <li class="w-full"><a href="./" class="w-full block px-4 text-xl font-semibold hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.home") }}</a></li>
       <li class="w-full"><a href="{{ route('fatawa') }}" class="w-full block px-4 text-xl font-semibold hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.fatawa") }}</a></li>
-      <li class="w-full"><a href="./" class="w-full block px-4 text-xl font-semibold hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.quran") }}</a></li>
-      <li class="w-full"><a href="./" class="w-full block px-4 text-xl font-semibold hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.hadith") }}</a></li>
+      <li class="w-full"><a href="#" class="w-full block px-4 text-xl font-semibold hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.quran") }}</a></li>
+      <li class="w-full"><a href="#" class="w-full block px-4 text-xl font-semibold hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.hadith") }}</a></li>
       <li id="hd-library-trigger" class="w-full">
-        <a class="w-full block px-4 text-xl font-semibold duration-100 lg:w-auto hover:cursor-pointer text-nowrap">{{ __("header.library") }}<i class="arrow down mx-2 mb-1"></i></a>
-        <ul id="hd-library-list" class="hidden mx-auto w-6/12 reltive border border-gray-50 bg-white shadow-sm rounded-md text-lg space-y-2 text-center py-2 mt-2 z-50 top-6 lg:w-auto lg:absolute">
-          <li><a href="./" class="p-2 px-6 hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.articles") }}</a></li>
-          <li><a href="./" class="p-2 px-6 hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.audios") }}</a></li>
-          <li><a href="./" class="p-2 px-6 hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.books") }} </a></li>
+        <a class="w-full block px-4 text-xl font-semibold duration-100 lg:w-auto hover:cursor-pointer text-nowrap">{{ __("header.library") }}<i class="arrow down mx-2 mb-1 duration-300"></i></a>
+        <ul id="hd-library-list" class="hidden mx-auto w-6/12 reltive border border-gray-50 bg-white shadow-sm rounded-md text-lg space-y-2 text-center py-2 pb-3 mt-2 z-50 top-6 lg:w-auto lg:absolute">
+          <li><a href="#" class="p-2 px-6 hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.articles") }}</a></li>
+          <li><a href="#" class="p-2 px-6 hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.audios") }}</a></li>
+          <li><a href="{{ route('books') }}" class="p-2 px-6 hover:border-green-700 hover:border-b-2 duration-100">{{ __("header.books") }} </a></li>
         </ul>
       </li>
     </ul>

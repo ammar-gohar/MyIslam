@@ -18,7 +18,7 @@ class MediaFactory extends Factory
     {
         return [
             'url' => fake()->imageUrl(),
-            'type' => fake()->optional()->randomElement(['video', 'image'])
+            'type' => fake()->optional()->randomElement(['video', 'image', 'audio'])
         ];
     }
 }

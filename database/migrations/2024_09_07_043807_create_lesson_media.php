@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('books_tags', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('lesson_media', function (Blueprint $table) {
+          $table->foreignId('lesson_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+          $table->foreignId('media_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+          $table->timestamps();
         });
     }
 
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('books_tags');
+        Schema::dropIfExists('lesson_media');
     }
 };
